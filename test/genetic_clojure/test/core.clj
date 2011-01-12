@@ -2,5 +2,7 @@
   (:use [genetic-clojure.core] :reload)
   (:use [clojure.test]))
 
-(deftest replace-me ;; FIXME: write
-  (is false "No tests have been written."))
+(deftest fitness-test
+  (is (= 0 (fitness "Hello World!")))
+  (is (= 1 (fitness "Iello World!")))
+  (is (= 5 (fitness "Iallo World!"))))
