@@ -19,7 +19,7 @@
   "Determines the fitness of a given chromo based on how far each of its
   characters are from the target string"
   [chromo]
-  (reduce + (map (fn [a b] (- (int a) (int b))) chromo target)))
+  (reduce + (map difference-between-chars chromo target)))
 
 
 (defn breed
