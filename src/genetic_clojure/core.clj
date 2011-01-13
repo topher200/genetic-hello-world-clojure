@@ -18,12 +18,12 @@
   [chromo]
   (reduce + (map difference-between-chars chromo target)))
 
-
 (defn breed
   "Breeds two chromos together by splitting them in a random place and
   switching the halves"
-  [s1 s2 position]
-  '("not", "implemented"))
+  ([s1 s2] (breed s1 s2 (rand-int (count s1))))
+  ([s1 s2 position]
+  '("not", "implemented")))
 
 (defn random-char
   "Returns a random char in our alphabet"
