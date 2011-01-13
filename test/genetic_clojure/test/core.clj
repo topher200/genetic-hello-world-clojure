@@ -2,8 +2,11 @@
   (:use [genetic-clojure.core] :reload)
   (:use [clojure.test]))
 
+(deftest target-test
+  ;; our tests depend on a certain hardcoded target string
+  (is (= "Hello Clojure World!" target)))
+
 (deftest fitness-test
-  (is (= "Hello Clojure World!" target))
   (is (= 0 (fitness "Hello Clojure World!")))
   (is (= 1 (fitness "Iello Clojure World!")))
   (is (= 5 (fitness "Iallo Clojure World!"))))
