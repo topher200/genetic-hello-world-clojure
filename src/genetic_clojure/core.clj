@@ -13,3 +13,9 @@
 (defn breed
   [s1 s2 position]
   '("not", "implemented"))
+
+(defn create-random-chromo
+  [length]
+  (apply str (take length (repeatedly random-char))))
+
+
