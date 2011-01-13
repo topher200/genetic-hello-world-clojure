@@ -14,6 +14,11 @@
   [s1 s2 position]
   '("not", "implemented"))
 
+(defn random-char
+  "Returns a random char in our alphabet"
+  []
+  (rand-nth alphabet))
+
 (defn create-random-chromo
   [length]
   (apply str (take length (repeatedly random-char))))
