@@ -24,7 +24,8 @@
   (rand-nth alphabet))
 
 (defn create-random-chromo
+  "Creates a string of the given length composed of random letters"
   [length]
-  (apply str (take length (repeatedly random-char))))
+  (take length (repeatedly random-char)))
 
 
