@@ -19,9 +19,9 @@
   (is (= 5 (fitness "Iallo Clojure World!"))))
 
 (deftest breed-test
-  (is (= '("aa", "bb") (breed "aa" "bb" 0)))
-  (is (= '("ab", "ab") (breed "aa" "bb" 1)))
-  (is (= '("abb", "baa") (breed "aaa" "bbb" 1))))
+  (is (= '["bb", "aa"] (breed "aa" "bb" 0)))
+  (is (= '["ab", "ba"] (breed "aa" "bb" 1)))
+  (is (= '["abb", "baa"] (breed "aaa" "bbb" 1))))
 
 (deftest difference-between-chars-test
   (is (= 0 (difference-between-chars \a \a)))
