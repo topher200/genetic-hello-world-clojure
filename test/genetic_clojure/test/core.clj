@@ -10,7 +10,7 @@
        target)))
 
 (deftest target-test
-  ;; our tests depend on a certain hardcoded target string
+  "Our tests depend on a hardcoded target string- test that they match"
   (is (= "Hello Clojure World!" target)))
 
 (deftest fitness-test
