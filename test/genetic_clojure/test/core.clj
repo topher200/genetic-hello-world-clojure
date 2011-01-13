@@ -2,6 +2,13 @@
   (:use [genetic-clojure.core] :reload)
   (:use [clojure.test]))
 
+(deftest target-in-alphabet-test
+  "Checks that every char in target has a matching char in alphabet"
+  (is (every?
+       (fn [target-char]
+         (some #(= target-char %) alphabet))
+       target)))
+
 (deftest target-test
   ;; our tests depend on a certain hardcoded target string
   (is (= "Hello Clojure World!" target)))
