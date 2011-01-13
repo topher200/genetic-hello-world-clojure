@@ -7,10 +7,14 @@
      "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "!", "?"))
 
 (defn fitness
+  "Determines the fitness of a given chromo based on how far it is from the
+  target string"
   [chromo]
   -1)
 
 (defn breed
+  "Breeds two chromos together by splitting them in a random place and
+  switching the halves"
   [s1 s2 position]
   '("not", "implemented"))
 
