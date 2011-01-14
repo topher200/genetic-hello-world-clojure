@@ -20,14 +20,15 @@
 
 (defn breed
   "Breeds two chromos together by splitting them in a random place and
-  switching the halves. Returns a vector of the two new strings"
+  combining the first half of the first string with the second half of the
+  second string."
   ([s1 s2]
      ;; No position was passed in- let's generate a random one
      (breed s1 s2 (rand-int (count s1))))
   ([s1 s2 position]
-     (map (fn [a b]
-            (apply str (concat (take position a) (drop position b))))
-          [s1, s2] [s2, s1])))
+     ((fn [a b]
+        (apply str (concat (take position a) (drop position b))))
+      s1 s2)))
 
 (defn random-char
   "Returns a random char in our alphabet"
