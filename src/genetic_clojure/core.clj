@@ -41,7 +41,7 @@
 
 (defn generate-random-sample
   []
-  (repeatedly 100 #(create-random-chromo (count target))))
+  (repeatedly 1000 #(create-random-chromo (count target))))
 
 (defn sort-by-fitness
   [list]
