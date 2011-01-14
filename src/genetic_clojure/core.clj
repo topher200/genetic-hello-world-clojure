@@ -37,7 +37,7 @@
 (defn create-random-chromo
   "Creates a string of the given length composed of random letters"
   [length]
-  (take length (repeatedly random-char)))
+  (apply str (take length (repeatedly random-char))))
 
 (defn generate-random-sample
   []
