@@ -22,7 +22,7 @@
   "Breeds two chromos together by splitting them in a random place and
   switching the halves. Returns a vector of the two new strings"
   ([s1 s2]
-     ;; No position was passed in- lets generate a random one
+     ;; No position was passed in- let's generate a random one
      (breed s1 s2 (rand-int (count s1))))
   ([s1 s2 position]
      (map (fn [a b]
