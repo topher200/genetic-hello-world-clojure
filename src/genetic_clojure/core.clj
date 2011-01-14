@@ -39,4 +39,8 @@
   [length]
   (take length (repeatedly random-char)))
 
+(defn generate-random-sample
+  []
+  (repeatedly 100 #(create-random-chromo (count target))))
+
 
