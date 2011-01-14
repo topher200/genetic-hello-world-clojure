@@ -47,3 +47,8 @@
   [list]
   (sort-by #(fitness %) list))
 
+(defn tourny-select-chromo
+  "Takes a list of chromos, selects two at random, and returns the one with
+  best fitness"
+  [list]
+  (first (sort-by-fitness (take 2 (repeatedly #(rand-nth list))))))
