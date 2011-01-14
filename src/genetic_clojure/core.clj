@@ -43,4 +43,7 @@
   []
   (repeatedly 100 #(create-random-chromo (count target))))
 
+(defn sort-by-fitness
+  [list]
+  (sort-by #(fitness %) list))
 

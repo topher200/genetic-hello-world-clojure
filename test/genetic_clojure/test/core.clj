@@ -29,3 +29,7 @@
   (is (= 1 (difference-between-chars \b \a)))
   (is (= 1 (difference-between-chars \A \B)))
   (is (= 32 (difference-between-chars \a \A))))
+
+(deftest sort-by-fitness-test
+  (is (= ["Hello Clojure World!" "asdkljsadfkljsdfkj"]
+           (sort-by-fitness ["asdkljsadfkljsdfkj" "Hello Clojure World!"]))))
