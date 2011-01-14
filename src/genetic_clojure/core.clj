@@ -26,9 +26,7 @@
      ;; No position was passed in- let's generate a random one
      (breed s1 s2 (rand-int (count s1))))
   ([s1 s2 position]
-     ((fn [a b]
-        (apply str (concat (take position a) (drop position b))))
-      s1 s2)))
+     (apply str (concat (take position s1) (drop position s2)))))
 
 (defn random-char
   "Returns a random char in our alphabet"
