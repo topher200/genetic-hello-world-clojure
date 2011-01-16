@@ -62,3 +62,19 @@
   from selected and breeding them"
   [selected]
   (repeatedly 1000 (fn [] (breed (rand-nth selected) (rand-nth selected)))))
+
+
+(defn run-loop
+  [sample]
+  (generate-solution (generate-selected sample)))
+
+(defn run
+  ([]
+     (run (generate-random-sample)))
+  ([sample]
+     (let [solution (sort-by-fitness (run-loop sample))]
+       (do
+         (println (first solution))
+         (if (= (fitness (first solution)) 0)
+           solution
+           (run solution))))))
