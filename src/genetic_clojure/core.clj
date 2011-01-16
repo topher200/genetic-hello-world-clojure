@@ -61,4 +61,4 @@
   "Generates the solution set by repeatedly selecting two chromos (at random)
   from selected and breeding them"
   [selected]
-  (repeatedly 1000 (fn [] breed (repeatedly 2 #(rand-nth selected)))))
+  (repeatedly 1000 (fn [] (breed (rand-nth selected) (rand-nth selected)))))
