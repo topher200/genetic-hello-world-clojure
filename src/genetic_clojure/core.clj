@@ -18,20 +18,36 @@
   [chromo]
   (reduce + (map difference-between-chars chromo target)))
 
-(defn breed
-  "Breeds two chromos together by splitting them in a random place and
-  combining the first half of the first string with the second half of the
-  second string."
-  ([s1 s2]
-     ;; No position was passed in- let's generate a random one
-     (breed s1 s2 (rand-int (count s1))))
-  ([s1 s2 position]
-     (apply str (concat (take position s1) (drop position s2)))))
-
 (defn random-char
   "Returns a random char in our alphabet"
   []
   (rand-nth alphabet))
+
+(defn breed
+  "Breeds two chromos together by splitting them at position and combining the
+  first half of the first string with the second half of the second string."
+  ([s1 s2 position]
+     (apply str (concat (take position s1) (drop position s2)))))
+
+(defn breed-with-mutation
+  "Breeds two chromos together like (breed), but inserts a random charactor at
+  position"
+  ([s1 s2 position]
+     (apply str (concat
+                 (take position s1)
+                 (list (random-char))
+                 (drop (+ position 1) s2)))))
+
+(defn breed-wrapper
+  "Decides whether to breed cleanly or with a mutation. Also provides a random
+  position for breeding if not provided"
+  ([s1 s2]
+     ;; No position was passed in- let's generate a random one
+     (breed-wrapper s1 s2 (rand-int (count s1))))
+  ([s1 s2 position]
+     (if (< 0 (rand-int 2))
+            (breed s1 s2 position)
+            (breed-with-mutation s1 s2 position))))
 
 (defn create-random-chromo
   "Creates a string of the given length composed of random letters"
@@ -61,7 +77,8 @@
   "Generates the solution set by repeatedly selecting two chromos (at random)
   from selected and breeding them"
   [selected]
-  (repeatedly 1000 (fn [] (breed (rand-nth selected) (rand-nth selected)))))
+  (repeatedly 1000
+              (fn [] (breed-wrapper (rand-nth selected) (rand-nth selected)))))
 
 
 (defn run-loop
