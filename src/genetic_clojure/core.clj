@@ -74,7 +74,7 @@
   ([sample]
      (let [solution (sort-by-fitness (run-loop sample))]
        (do
-         (println (first solution))
+         (println (fitness (first solution)) (first solution))
          (if (= (fitness (first solution)) 0)
            solution
            (run solution))))))
