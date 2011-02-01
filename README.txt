@@ -21,7 +21,13 @@
   of 0 (matches our target).
 
 
-## Usage
+## Usage 
+  All of the parameters are hardcoded (I'm new to Clojure, leave me
+  alone). Therefore, to run the genetic algorithm simply import the project
+  and call the (run) function.
+
+  (use 'genetic-clojure.core)
+  (run)
 
 
 ## Changelog 
