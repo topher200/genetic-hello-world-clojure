@@ -83,7 +83,6 @@
   (repeatedly 1000
               (fn [] (breed-wrapper (rand-nth selected) (rand-nth selected)))))
 
-
 (defn run-loop
   [sample]
   (generate-solution (generate-selected sample)))
