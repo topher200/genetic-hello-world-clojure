@@ -83,7 +83,7 @@
   (repeatedly 1000
               (fn [] (breed-wrapper (rand-nth selected) (rand-nth selected)))))
 
-(defn run-loop
+(defn run-generation
   [sample]
   (generate-solution (generate-selected sample)))
 
@@ -91,7 +91,7 @@
   ([]
      (run (generate-random-sample)))
   ([sample]
-     (let [solution (sort-by-fitness (run-loop sample))]
+     (let [solution (sort-by-fitness (run-generation sample))]
        (do
          (println (fitness (first solution)) (first solution))
          (if (= (fitness (first solution)) 0)
